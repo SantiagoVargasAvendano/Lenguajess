@@ -15,8 +15,11 @@ public class Main {
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             // Crear el objeto correspondiente al analizador sintáctico que se alimenta a partir del buffer de tokens
             CPP14Parser parser = new CPP14Parser(tokens);
-            ParseTree tree = parser.inicio(); // Iniciar el analisis sintáctico en la regla inicial: r
+            ParseTree tree = parser.translationUnit(); // Iniciar el analisis sintáctico en la regla inicial: r
             System.out.println(tree.toStringTree(parser)); // imprime el arbol al estilo LISP
+
+            Visitor<Object> loader = new Visitor<Object>();
+            loader.visit(tree);
         } catch (Exception e){
             System.err.println("Error (Test): " + e);
         }

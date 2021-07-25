@@ -263,7 +263,7 @@ public class CPP14Parser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
-	public static class TranslationUnitContext extends ParserRuleContext {
+    public static class TranslationUnitContext extends ParserRuleContext {
 		public TerminalNode EOF() { return getToken(CPP14Parser.EOF, 0); }
 		public DeclarationseqContext declarationseq() {
 			return getRuleContext(DeclarationseqContext.class,0);
